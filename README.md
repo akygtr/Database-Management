@@ -1,7 +1,3 @@
 Building an inventory management system
-Files 
-*******************************
-.DS_Stote
-Data Tables
-DDL
-.bacpac
+The system ensures efficient tracking, ordering, and management of products within an organization (SLF). It automates workflows related to product stock levels, supplier orders, and payment updates.
+
