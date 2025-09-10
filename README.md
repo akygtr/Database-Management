@@ -71,12 +71,7 @@ The design is based on the following rules:
 
 ## Entity-Relationship Diagram (ERD)
 
-*(Include your ERD image here – for example, place an ERD PNG in the repo and reference it like below)*
-
-```markdown
-<img width="250" height="658" alt="image" src="https://github.com/user-attachments/assets/0faabf35-363b-4fb8-9e20-55481b053fcd" />
-
-```
+<img width="670" height="482" alt="Screenshot 2025-09-10 171940" src="https://github.com/user-attachments/assets/8b87fdd5-735b-4f10-9230-06131174abb0" />
 
 ---
 
