@@ -1,9 +1,4 @@
 # SLF Database Design
-Table of Contents
-
----
-
-# SLF Database Design
 This repository contains the database design for the SLF (Shipping & Logistics Fulfillment) system, including the Entity-Relationship Diagram (ERD), Logical Design, and Physical Design (SQL DDL statements). The design is built to manage customer orders, supplier orders, product inventory, and employee information for a small business.
 
 * **Entity-Relationship Diagram (ERD)**
