@@ -1,4 +1,89 @@
-SLF Database DesignThis repository contains the database design for the SLF (Shipping & Logistics Fulfillment) system, including the Entity-Relationship Diagram (ERD), Logical Design, and Physical Design (SQL DDL statements). The design is built to manage customer orders, supplier orders, product inventory, and employee information for a small business.Table of ContentsOverviewAssumptionsDatabase SchemaEntity-Relationship Diagram (ERD)Physical Design (SQL DDL)OverviewThe database is designed to support core business operations, including:Customer Management: Storing customer details and their billing/delivery addresses.Product and Supplier Management: Tracking product information, including inventory levels and associated suppliers.Employee Management: Managing employee data, including their roles and reporting structure.Order Processing: Handling both customer and supplier orders, tracking their status, and updating inventory.AssumptionsThe design is based on the following key business rules and assumptions:All employees, except for the Managing Director, are supervised by another employee.Each product is associated with one and only one supplier.Product reordering is triggered when the AvailableQty falls below the ReOrderQty.A message is sent to the Purchasing Officer, who can then create a supplier order.Supplier orders start in a 'Pending' state and are updated to 'Complete' upon receipt.Upon completion of a supplier order, the AvailableQty for the ordered products is automatically updated, and the reorder status is reset.Database SchemaLogical DesignThis section provides a simplified view of the tables and their primary and foreign keys.CUSTOMER (CustomerID, CustomerFirstName, CustomerLastName, CustomerAddress, CustomerEmail, BillingAddress)PRODUCT (ProductID, ProductName, SupplierID, UnitCostPrice, UnitSellingPrice, ProductUnit, AvailableQty, ReOrderQty, ReOrderStatus)SUPPLIER (SupplierID, SupplierName, SupplierAddress, SupplierEmail)EMPLOYEE (EmployeeID, EmployeeFirstName, EmployeeLastName, Department, Role, Salary, SupervisorID)CUSTORDERHEADER (CustOrderID, CustomerID, OrderDate, ShipDate, DeliveryAddress, PaymentDue)CUSTORDERDETAIL (CustOrderID, ProductID, Order_Qty)SUPPLIERORDERHEADER (SupplierOrderID, SupplierID, PurchaseOfficerID, Order_Date, Receipt_Date, Order_Status, Payment_Amount)SUPPLIERORDERDETAIL (SupplierOrderID, ProductID, Order_Qty)Physical Design (SQL DDL)The following SQL Data Definition Language (DDL) statements can be used to create the tables in a database.CUSTOMER TableCREATE TABLE CUSTOMER (
+# SLF Database Design
+Table of Contents
+
+---
+
+# SLF Database Design
+This repository contains the database design for the SLF (Shipping & Logistics Fulfillment) system, including the Entity-Relationship Diagram (ERD), Logical Design, and Physical Design (SQL DDL statements). The design is built to manage customer orders, supplier orders, product inventory, and employee information for a small business.
+
+* **Entity-Relationship Diagram (ERD)**
+* **Logical Design (Schema)**
+* **Physical Design (SQL DDL statements)**
+
+The design supports operations such as customer management, product inventory tracking, supplier management, employee supervision, and order processing.
+
+---
+
+## 📑 Table of Contents
+
+* [Overview](#overview)
+* [Assumptions](#assumptions)
+* [Database Schema](#database-schema)
+* [Entity-Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+* [Physical Design (SQL DDL)](#physical-design-sql-ddl)
+* [Getting Started](#getting-started)
+* [Future Enhancements](#future-enhancements)
+* [Author](#author)
+
+---
+
+## 🔎 Overview
+
+The SLF database is built to manage a small business’s core shipping and logistics workflows, including:
+
+* **Customer Management** → Storing customer details with billing and delivery addresses.
+* **Product & Supplier Management** → Tracking product details, costs, pricing, stock levels, and suppliers.
+* **Employee Management** → Maintaining employee details, roles, and reporting structures.
+* **Order Processing** → Handling customer and supplier orders, updating order status, and managing inventory.
+
+---
+
+## 📌 Assumptions & Business Rules
+
+The design is based on the following rules:
+
+1. All employees (except the **Managing Director**) report to a supervisor.
+2. Each product has exactly **one supplier**.
+3. Reordering is triggered when `AvailableQty < ReOrderQty`.
+4. The **Purchasing Officer** creates supplier orders when notified.
+5. Supplier orders begin in a `Pending` state and switch to `Complete` upon receipt.
+6. When a supplier order is completed:
+
+   * Product `AvailableQty` is updated.
+   * The `ReOrderStatus` is reset.
+
+---
+
+## 🗄️ Database Schema
+
+### **Logical Design (Tables & Keys)**
+
+* **CUSTOMER**(`CustomerID`, `CustomerFirstName`, `CustomerLastName`, `CustomerAddress`, `CustomerEmail`, `BillingAddress`)
+* **SUPPLIER**(`SupplierID`, `SupplierName`, `SupplierAddress`, `SupplierEmail`)
+* **PRODUCT**(`ProductID`, `ProductName`, `SupplierID`, `UnitCostPrice`, `UnitSellingPrice`, `ProductUnit`, `AvailableQty`, `ReOrderQty`, `ReOrderStatus`)
+* **EMPLOYEE**(`EmployeeID`, `EmployeeFirstName`, `EmployeeLastName`, `Department`, `Role`, `Salary`, `SupervisorID`)
+* **CUSTORDERHEADER**(`CustOrderID`, `CustomerID`, `OrderDate`, `ShipDate`, `DeliveryAddress`, `PaymentDue`)
+* **CUSTORDERDETAIL**(`CustOrderID`, `ProductID`, `Order_Qty`)
+* **SUPPLIERORDERHEADER**(`SupplierOrderID`, `SupplierID`, `PurchaseOfficerID`, `Order_Date`, `Receipt_Date`, `Order_Status`, `Payment_Amount`)
+* **SUPPLIERORDERDETAIL**(`SupplierOrderID`, `ProductID`, `Order_Qty`)
+
+---
+
+## 📊 Entity-Relationship Diagram (ERD)
+
+*(Include your ERD image here – for example, place an ERD PNG in the repo and reference it like below)*
+
+```markdown
+![ERD Diagram](./assets/SLF_ERD.png)
+```
+
+---
+
+## 🛠️ Physical Design (SQL DDL)
+
+```sql
+-- CUSTOMER Table
+CREATE TABLE CUSTOMER (
     CustomerID INT PRIMARY KEY,
     CustomerFirstName VARCHAR(100) NOT NULL,
     CustomerLastName VARCHAR(100) NOT NULL,
@@ -6,13 +91,17 @@ SLF Database DesignThis repository contains the database design for the SLF (Shi
     CustomerEmail VARCHAR(100) NOT NULL,
     CustomerBillingAddress VARCHAR(200)
 );
-SUPPLIER TableCREATE TABLE SUPPLIER (
+
+-- SUPPLIER Table
+CREATE TABLE SUPPLIER (
     SupplierID INT PRIMARY KEY,
     SupplierName VARCHAR(200) NOT NULL,
     SupplierAddress VARCHAR(300),
     SupplierEmail VARCHAR(100) NOT NULL
 );
-PRODUCT TableCREATE TABLE PRODUCT (
+
+-- PRODUCT Table
+CREATE TABLE PRODUCT (
     ProductID INT PRIMARY KEY,
     ProductName VARCHAR(200) NOT NULL,
     SupplierID INT NOT NULL,
@@ -24,7 +113,9 @@ PRODUCT TableCREATE TABLE PRODUCT (
     ReOrderStatus VARCHAR(1) DEFAULT 'N' CHECK (ReOrderStatus IN ('Y', 'N')),
     FOREIGN KEY (SupplierID) REFERENCES SUPPLIER (SupplierID) ON DELETE CASCADE
 );
-EMPLOYEE TableCREATE TABLE EMPLOYEE (
+
+-- EMPLOYEE Table
+CREATE TABLE EMPLOYEE (
     EmployeeID INT PRIMARY KEY,
     EmployeeFirstName VARCHAR(100) NOT NULL,
     EmployeeLastName VARCHAR(100) NOT NULL,
@@ -34,7 +125,9 @@ EMPLOYEE TableCREATE TABLE EMPLOYEE (
     SupervisorID INT,
     FOREIGN KEY (SupervisorID) REFERENCES EMPLOYEE (EmployeeID) ON DELETE CASCADE
 );
-CUSTORDERHEADER TableCREATE TABLE CUSTORDERHEADER (
+
+-- CUSTORDERHEADER Table
+CREATE TABLE CUSTORDERHEADER (
     CustOrderID INT PRIMARY KEY,
     CustomerID INT,
     OrderDate DATE NOT NULL,
@@ -43,7 +136,9 @@ CUSTORDERHEADER TableCREATE TABLE CUSTORDERHEADER (
     PaymentDue DECIMAL (7, 2) DEFAULT 0,
     FOREIGN KEY (CustomerID) REFERENCES CUSTOMER (CustomerID) ON DELETE CASCADE
 );
-CUSTORDERDETAIL TableCREATE TABLE CUSTORDERDETAIL (
+
+-- CUSTORDERDETAIL Table
+CREATE TABLE CUSTORDERDETAIL (
     CustOrderID INT,
     ProductID INT,
     Order_Qty INT NOT NULL,
@@ -51,7 +146,9 @@ CUSTORDERDETAIL TableCREATE TABLE CUSTORDERDETAIL (
     FOREIGN KEY (CustOrderID) REFERENCES CUSTORDERHEADER (CustOrderID) ON DELETE CASCADE,
     FOREIGN KEY (ProductID) REFERENCES PRODUCT (ProductID) ON DELETE CASCADE
 );
-SUPPLIERORDERHEADER TableCREATE TABLE SUPPLIERORDERHEADER (
+
+-- SUPPLIERORDERHEADER Table
+CREATE TABLE SUPPLIERORDERHEADER (
     SupplierOrderID INT PRIMARY KEY,
     SupplierID INT,
     PurchaseOfficerID INT,
@@ -62,7 +159,9 @@ SUPPLIERORDERHEADER TableCREATE TABLE SUPPLIERORDERHEADER (
     FOREIGN KEY (SupplierID) REFERENCES SUPPLIER (SupplierID) ON DELETE CASCADE,
     FOREIGN KEY (PurchaseOfficerID) REFERENCES EMPLOYEE (EmployeeID) ON DELETE CASCADE
 );
-SUPPLIERORDERDETAIL TableCREATE TABLE SUPPLIERORDERDETAIL (
+
+-- SUPPLIERORDERDETAIL Table
+CREATE TABLE SUPPLIERORDERDETAIL (
     SupplierOrderID INT,
     ProductID INT,
     Order_Qty INT NOT NULL,
@@ -70,4 +169,34 @@ SUPPLIERORDERDETAIL TableCREATE TABLE SUPPLIERORDERDETAIL (
     FOREIGN KEY (SupplierOrderID) REFERENCES SUPPLIERORDERHEADER (SupplierOrderID) ON DELETE CASCADE,
     FOREIGN KEY (ProductID) REFERENCES PRODUCT (ProductID) ON DELETE CASCADE
 );
+```
 
+---
+
+## 🚀 Getting Started
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your-username/SLF-Database-Design.git
+   ```
+2. Run the SQL script in your preferred database (MySQL, PostgreSQL, SQL Server).
+3. Verify the schema using the ERD provided in the `/assets` folder.
+
+---
+
+## 📌 Future Enhancements
+
+* Stored procedures for automatic reorder triggers.
+* Triggers for updating stock levels after supplier order completion.
+* Views for simplified reporting (e.g., low stock, pending orders).
+
+---
+
+## 👨‍💻 Author
+
+Developed by **\[Your Name]**
+
+---
+
+Do you also want me to **add sample `INSERT` statements** (seed data for Customers, Products, Suppliers, etc.) so that someone testing your repo can run queries immediately, or keep it schema-only?
