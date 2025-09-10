@@ -26,10 +26,10 @@ The design supports operations such as customer management, product inventory tr
 
 The SLF database is built to manage a small business’s core shipping and logistics workflows, including:
 
-* **Customer Management** → Storing customer details with billing and delivery addresses.
-* **Product & Supplier Management** → Tracking product details, costs, pricing, stock levels, and suppliers.
-* **Employee Management** → Maintaining employee details, roles, and reporting structures.
-* **Order Processing** → Handling customer and supplier orders, updating order status, and managing inventory.
+* **Customer Management** : Storing customer details with billing and delivery addresses.
+* **Product & Supplier Management** : Tracking product details, costs, pricing, stock levels, and suppliers.
+* **Employee Management** : Maintaining employee details, roles, and reporting structures.
+* **Order Processing** : Handling customer and supplier orders, updating order status, and managing inventory.
 
 ---
 
