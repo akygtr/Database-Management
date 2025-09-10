@@ -262,18 +262,6 @@ FROM SLF.dbo.SUPPLIERORDERHEADER c;
 
 ---
 
-## Getting Started
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/your-username/SLF-Database-Design.git
-   ```
-2. Run the SQL script in your preferred database (MySQL, PostgreSQL, SQL Server).
-3. Verify the schema using the ERD provided in the `/assets` folder.
-
----
-
 ## Future Enhancements
 
 * Stored procedures for automatic reorder triggers.
