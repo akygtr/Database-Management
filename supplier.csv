@@ -1,0 +1,11 @@
+﻿SupplierID,SupplierName,SupplierAddress,SupplierCity,SupplierState,SupplierRegion,SupplierZIP,SupplierEmail
+1,FreshFleet Foods,123 Main Street,Mumbai,MB,Asia,40001,support@freshfleetfoods.com
+2,Garden Harvest Suppliers,789 Maple Road,Tokyo,TK,Asia,10005,logistics@gardenharvestsuppliers.com
+3,Pantry Partners Logistics,456 Rue de Rivoli,Lyon,PA,Europe,69001,support@pantrypartners.com
+4,Nature's Bounty Distributors,123 Berliner StraBe,Munich,GE,Europe,90331,distribution@naturesbounty.com
+5,Prime Produce Suppliers,789 Long Street,Cape Town,SA,Africa,80001,support@primeproducesuppliers.com
+6,Green Grocer Logistics,101 Short Street,Johannesburg,JB,Africa,20310,help@greengrocerslogistics.com
+7,Harvest Haven Supply Co,789 Avenida Paulista,Sao Paulo,SP,South America,13102,distribution@harvesthavensupply.com
+8,Vital Veggies Distributors,123 Avenida Corrientes,Buenos Aires,BA,South America,10431,support@vitalveggies.com
+9,Orchard Oasis Logistics,789 Fifth Avenue,New York,NY,North America,10019,help@orchardoasis.com
+10,Market Fresh Express,101 Market Street,San Francisco,CA,North America,94105,logistics@marketfreshexpress.com

@@ -1,0 +1,21 @@
+EmployeeID,EmployeeFirstName,EmployeeLastName,Department,Role,Salary,SupervisorID
+1,Walter,Reilly,HR,Purchasing Officer,146903.06,8
+2,Gary,Romero,Logistics,Accountant,48351.07,11
+3,Inez,Luna,HR,HR Specialist,283579.49,4
+4,Uta,Joyner,Accounting,HR Specialist,222834.18,13
+5,Jeremy,Ballard,Logistics,Accountant,261612.02,3
+6,Abel,Glass,Accounting,Accountant,165512.21,17
+7,Sawyer,Erickson,Supplychain,Purchasing Officer,148981.56,10
+8,Shea,Mccray,HR,Accountant,300192.89,20
+9,Galvin,Dominguez,Logistics,HR Specialist,42215.45,20
+10,Lucius,Pierce,Supplychain,Purchasing Officer,34228.20,5
+11,Coby,Barr,Accounting,Accountant,71907.36,10
+12,Craig,Richard,Logistics,Managing Director,107635.25,
+13,Ashton,Merrill,HR,Accountant,158284.99,16
+14,Camille,Chandler,Accounting,Accountant,79237.95,12
+15,Lavinia,Buchanan,Logistics,Order Fulfillment Officer,273333.98,9
+16,Carla,Brooks,Accounting,Purchasing Officer,191277.67,7
+17,Preston,Hyde,Supplychain,Purchasing Officer,297647.28,5
+18,Irma,Hines,Supplychain,Purchasing Officer,63114.64,14
+19,Francis,Roberts,HR,Accountant,150934.03,14
+20,Adele,Patel,HR,HR Specialist,231983.26,10

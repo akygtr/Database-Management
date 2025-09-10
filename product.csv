@@ -1,0 +1,51 @@
+ProductID,ProductName,SupplierID,UnitCostPrice,UnitSellingPrice,ProductUnit,AvailableQty,ReOrderQty,ReOrderStatus
+13,"ac,",3,19.69,20.93,OZ,68,100,Y
+7,Aenean gravida,1,14.68,20.25,FL OZ,64,100,Y
+33,arcu.,2,13.38,24.46,FL OZ,35,10,Y
+15,"at, velit.",7,12.96,23.02,FL OZ,22,100,N
+11,dolor.,3,15.11,20.47,FL OZ,87,100,N
+48,dui,5,10.30,22.53,OZ,28,10,Y
+24,Duis,6,13.22,22.21,OZ,35,10,N
+43,eleifend,5,10.15,23.50,ML,17,10,N
+37,"eleifend vitae,",7,19.12,24.39,OZ,23,100,Y
+9,elit,4,19.70,24.53,ML,46,200,Y
+42,enim,7,10.89,21.36,FL OZ,87,50,N
+18,erat semper,6,16.41,20.48,ML,99,50,Y
+5,"erat, in",2,10.92,22.92,LBS,73,50,Y
+12,eu nibh,10,15.89,24.05,ML,88,100,Y
+1,"eu,",3,19.83,22.28,FL OZ,49,200,N
+38,"eu, euismod",1,18.98,23.96,OZ,39,50,N
+27,euismod,9,14.44,24.05,FL OZ,76,10,Y
+3,fames ac,8,14.10,21.03,FL OZ,68,20,N
+36,fermentum,7,16.82,24.42,LBS,43,50,N
+29,Fusce dolor,3,12.16,22.17,FL OZ,35,50,N
+21,"iaculis, lacus",2,12.01,21.64,OZ,42,200,Y
+44,In condimentum.,8,11.04,22.97,LBS,13,20,Y
+50,lorem. Donec,4,10.27,20.39,LBS,29,50,Y
+14,luctusa,4,15.52,20.59,LBS,78,200,Y
+26,luctus,5,18.54,20.34,LBS,58,10,Y
+4,"mattis ornare,",6,11.43,20.88,LBS,85,10,N
+28,mauris,9,15.89,23.98,FL OZ,67,200,Y
+22,Mauris blandit,5,15.07,24.18,LBS,56,100,N
+47,metus. In,10,13.79,24.77,ML,99,100,Y
+49,mi,6,18.36,23.01,OZ,74,20,N
+30,mus.,7,12.52,22.74,OZ,30,20,N
+34,Nam consequat,1,19.37,22.59,FL OZ,81,10,Y
+39,nec,3,19.04,21.20,LBS,16,20,N
+46,neca,4,16.85,21.97,LBS,80,50,Y
+19,neque,7,13.48,22.81,ML,93,200,Y
+20,neque venenatis,9,18.70,20.74,FL OZ,26,200,Y
+32,netus et,3,10.75,22.02,FL OZ,48,50,Y
+35,nibh. Aliquam,8,19.84,20.55,OZ,24,50,Y
+45,orci luctus,4,13.42,23.75,FL OZ,44,50,Y
+25,pellentesque. Sed,5,16.80,24.05,FL OZ,35,200,N
+17,"pretium et,",8,14.32,22.93,OZ,29,200,N
+16,purus.,6,16.39,23.64,LBS,1,20,Y
+31,quis,1,14.06,21.76,OZ,22,20,N
+8,tincidunt,6,16.13,21.19,OZ,72,10,N
+41,ullamcorper viverra.,5,13.60,20.81,LBS,35,50,N
+6,ultrices,3,14.49,21.88,FL OZ,50,100,N
+40,"ut,",2,16.61,23.19,FL OZ,15,200,N
+23,"vel, mauris.",4,15.94,21.92,OZ,87,50,N
+2,vitae semper,5,18.07,22.46,ML,80,10,N
+10,"vitae,",7,18.02,20.10,LBS,72,10,Y
