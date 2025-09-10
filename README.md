@@ -195,4 +195,3 @@ Developed by **Akshara Kumari**
 
 ---
 
-Do you also want me to **add sample `INSERT` statements** (seed data for Customers, Products, Suppliers, etc.) so that someone testing your repo can run queries immediately, or keep it schema-only?
