@@ -166,6 +166,104 @@ CREATE TABLE SUPPLIERORDERDETAIL (
     FOREIGN KEY (ProductID) REFERENCES PRODUCT (ProductID) ON DELETE CASCADE
 );
 ```
+# Database Validation Queries
+
+The following SQL scripts were used to validate the **SLF database** structure and data integrity.
+
+---
+
+## Supplier Validation
+
+```sql
+-- Expecting 10 Suppliers
+SELECT COUNT(DISTINCT SupplierID) AS SupplierCount
+FROM SLF.dbo.SUPPLIER s;
+
+-- Each region should have 2 suppliers
+SELECT COUNT(DISTINCT SupplierID) AS SupplierCount, SupplierRegion
+FROM SLF.dbo.SUPPLIER s
+GROUP BY SupplierRegion;
+```
+
+---
+
+## Employee Validation
+
+```sql
+-- Expecting 20 Employees
+SELECT COUNT(EmployeeID) AS EmployeeCount
+FROM SLF.dbo.EMPLOYEE;
+
+-- Validate employee roles
+SELECT COUNT(EmployeeID) AS EmployeeCount, Role
+FROM SLF.dbo.EMPLOYEE
+GROUP BY Role;
+
+-- Managing Director has no supervisor, others must have one
+SELECT COUNT(SupervisorID) AS SupervisorCount, Role
+FROM SLF.dbo.EMPLOYEE
+GROUP BY Role;
+```
+
+---
+
+## Product Validation
+
+```sql
+-- Expecting 50 Products
+SELECT COUNT(ProductID) AS ProductCount
+FROM SLF.dbo.PRODUCT;
+
+-- Ensure valid cost and selling price ranges
+SELECT MIN(UnitCostPrice) AS MinProductPrice,
+       MAX(UnitCostPrice) AS MaxProductPrice,
+       MIN(UnitSellingPrice) AS MinSellingPrice,
+       MAX(UnitSellingPrice) AS MaxSellingPrice
+FROM SLF.dbo.PRODUCT;
+
+-- Each product should have only one supplier
+SELECT MAX(SupplierCount) AS MaxSupplierCount
+FROM (
+    SELECT COUNT(SupplierID) AS SupplierCount, ProductName
+    FROM SLF.dbo.PRODUCT
+    GROUP BY ProductName
+) subquery;
+```
+
+---
+
+## Customer Validation
+
+```sql
+-- Expecting 250 Customers
+SELECT COUNT(CustomerID) AS CustomerCount
+FROM SLF.dbo.CUSTOMER;
+
+-- Validate customers by state (e.g., all customers in USA)
+SELECT COUNT(CustomerID) AS CustomerCount, CustomerState
+FROM SLF.dbo.CUSTOMER
+GROUP BY CustomerState;
+```
+
+---
+
+## Order Validation
+
+```sql
+-- Expecting 500 Customer Orders 
+-- Order date should be before Ship date
+SELECT COUNT(CustOrderID) AS OrderCount,
+       MAX(OrderDate) AS MaxOrderDate,
+       MIN(ShipDate) AS MinShipDate
+FROM SLF.dbo.CUSTORDERHEADER c;
+
+-- Expecting 500 Supplier Orders 
+-- Order date should be before Receipt date
+SELECT COUNT(SupplierOrderID) AS OrderCount,
+       MAX(OrderDate) AS MaxOrderDate,
+       MIN(ReceiptDate) AS MinShipDate
+FROM SLF.dbo.SUPPLIERORDERHEADER c;
+```
 
 ---
 
