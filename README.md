@@ -14,20 +14,20 @@ The design supports operations such as customer management, product inventory tr
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-* [Overview](#overview)
-* [Assumptions](#assumptions)
-* [Database Schema](#database-schema)
-* [Entity-Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
-* [Physical Design (SQL DDL)](#physical-design-sql-ddl)
-* [Getting Started](#getting-started)
-* [Future Enhancements](#future-enhancements)
-* [Author](#author)
+* Overview
+* Assumptions
+* Database Schema
+* Entity-Relationship Diagram (ERD)
+* Physical Design (SQL DDL)](#physical-design-sql-ddl
+* Getting Started
+* Future Enhancements
+* Author
 
 ---
 
-## 🔎 Overview
+## Overview
 
 The SLF database is built to manage a small business’s core shipping and logistics workflows, including:
 
@@ -38,7 +38,7 @@ The SLF database is built to manage a small business’s core shipping and logis
 
 ---
 
-## 📌 Assumptions & Business Rules
+## Assumptions & Business Rules
 
 The design is based on the following rules:
 
@@ -54,7 +54,7 @@ The design is based on the following rules:
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### **Logical Design (Tables & Keys)**
 
@@ -69,17 +69,18 @@ The design is based on the following rules:
 
 ---
 
-## 📊 Entity-Relationship Diagram (ERD)
+## Entity-Relationship Diagram (ERD)
 
 *(Include your ERD image here – for example, place an ERD PNG in the repo and reference it like below)*
 
 ```markdown
-![ERD Diagram](./assets/SLF_ERD.png)
+<img width="250" height="658" alt="image" src="https://github.com/user-attachments/assets/0faabf35-363b-4fb8-9e20-55481b053fcd" />
+
 ```
 
 ---
 
-## 🛠️ Physical Design (SQL DDL)
+## Physical Design (SQL DDL)
 
 ```sql
 -- CUSTOMER Table
@@ -173,7 +174,7 @@ CREATE TABLE SUPPLIERORDERDETAIL (
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone this repository:
 
@@ -185,7 +186,7 @@ CREATE TABLE SUPPLIERORDERDETAIL (
 
 ---
 
-## 📌 Future Enhancements
+## Future Enhancements
 
 * Stored procedures for automatic reorder triggers.
 * Triggers for updating stock levels after supplier order completion.
@@ -193,9 +194,9 @@ CREATE TABLE SUPPLIERORDERDETAIL (
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-Developed by **\[Your Name]**
+Developed by **Akshara Kumari**
 
 ---
 
